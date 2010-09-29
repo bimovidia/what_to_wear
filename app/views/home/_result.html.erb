@@ -1,0 +1,45 @@
+<% if !@weather.empty? %>
+
+<div>
+
+  <h2>What To Wear In <%= @weather['city'] %>, <%= @weather['region'] %>, <%= @weather['country'] %>:</h2>
+  <% if @weather['temp'].to_i <  30%>
+  <h3>Boys:</h3>
+  <%= image_tag('men_winter.png') %>
+  <h3>Girls:</h3>
+  <%= image_tag('women_winter.png') %>
+  <%  elsif @weather['temp'].to_i.between?(29,39) %>
+  <%= image_tag('men_jacket.png') %>
+  <% elsif @weather['temp'].to_i.between?(40,50) %>
+  <h3>Boys:</h3>
+  <%= image_tag('men_hoodie.png') %>
+  <h3>Girls:</h3>
+  <%= image_tag('women_hoodie.png') %>
+  <% elsif @weather['temp'].to_i.between?(51,75) %>
+  <h3>Boys:</h3>
+  <%= image_tag('hat.png') %>
+  <%= image_tag('men_shirt.png') %>
+  <%= image_tag('men_short.png') %>
+  <%= image_tag('men_shoes.png') %>
+  <h3>Girls</h3>
+  <%= image_tag('women_shirt.png') %>
+  <%= image_tag('women_short.png') %>
+  <%= image_tag('women_short.png') %>
+  <% else %>
+  <h3>Boys:</h3>
+  <%= image_tag('men_swimwear.png') %>
+  <h3>Girls</h3>
+  <%= image_tag('women_swimwear.png') %>
+  <%= image_tag('women_bikini.png') %>
+  <% end %>
+  
+</div>
+
+<% end %>
+
+
+<% if !@errText.nil? #Display Error Message if the place cannot be found! %>
+
+  <h2><%= @errText %></h2>
+  
+<% end %>

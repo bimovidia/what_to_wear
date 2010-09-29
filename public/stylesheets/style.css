@@ -1,0 +1,67 @@
+/* 
+    Document   : style
+    Created on : Sep 28, 2010, 12:01:03 PM
+    Author     : bimovidia
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+html{
+    background:url('../images/bg_tile.png') repeat 0 0;
+    font-family: Georgia,'Times New Roman',times,serif;
+    font-size: 14px;
+    color: #fff;
+}
+
+body{
+    height:100%;
+}
+
+#wrapper{
+    display:block;
+    width:960px;
+    margin: 10px auto;
+}
+
+.rounded{
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius: 10px;
+}
+
+form input{
+    padding:.5em;
+    border:3px solid #ccc;
+    font-size:1em;
+    color:#242424;
+    width:200px;
+}
+
+form input[type='submit']{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em;
+    margin:0 0 0 10px;
+    width:auto;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+form input[type='submit']:hover {
+    text-decoration: none;
+}
+form input[type='submit']:active {
+    position: relative;
+    top: 1px;
+}

@@ -1,0 +1,14 @@
+<header>
+  <h1>What To Wear</h1>
+</header>
+
+<section>
+
+  <%= form_tag :method => 'put' do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+
+  <%= render 'home/result' %>
+
+</section>

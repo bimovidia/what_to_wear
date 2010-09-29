@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WhatToWear</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery-1.4.2.min', 'jquery-ui-1.8.5.custom.min', 'functions' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

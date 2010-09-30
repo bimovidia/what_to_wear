@@ -16,35 +16,29 @@ class GetWeather
     rescue response = "Connection error."
     end
 
-    data = REXML::Document.new(response)
+    doc = REXML::Document.new(response)
 
-    location = REXML::XPath.match(data,'//yweather:location')
-    location.each do |line|
-      city = line.attributes['city']
-      region = line.attributes['region']
-      country = line.attributes['country']
-    end
+    yweather = REXML::XPath.match(doc,"//yweather:*")
 
-    wind = REXML::XPath.match(data,'//yweather:wind')
-    wind.each do |line|
-      chill = line.attributes['chill']
-      direction = line.attributes['direction']
-      speed = line.attributes['speed']
-    end
+    yweather.each do |line|
 
-    atmosphere = REXML::XPath.match(data,'//yweather:atmosphere')
-    atmosphere.each do |line|
-      humidity = line.attributes['humidity']
-      visibility = line.attributes['visibility']
-      pressure = line.attributes['pressure']
-      rising = line.attributes['rising']
-    end
+      if !line.attributes['city'].nil? then city = line.attributes['city'] end
+      if !line.attributes['region'].nil? then region = line.attributes['region'] end
+      if !line.attributes['country'].nil? then country = line.attributes['country'] end
 
-    condition = REXML::XPath.match(data,'//yweather:condition')
-    condition.each do |line|
-      code = line.attributes['code']
-      text = line.attributes['text']
-      temp = line.attributes['temp']
+      if !line.attributes['chill'].nil? then chill = line.attributes['chill'] end
+      if !line.attributes['direction'].nil? then direction = line.attributes['direction'] end
+      if !line.attributes['speed'].nil? then speed = line.attributes['speed'] end
+
+      if !line.attributes['humidity'].nil? then humidity = line.attributes['humidity'] end
+      if !line.attributes['visibility'].nil? then visibility = line.attributes['visibility'] end
+      if !line.attributes['pressure'].nil? then pressure = line.attributes['pressure'] end
+      if !line.attributes['rising'].nil? then rising = line.attributes['rising'] end
+
+      if !line.attributes['code'].nil? then code = line.attributes['code'] end
+      if !line.attributes['text'].nil? then text = line.attributes['text'] end
+      if !line.attributes['temp'].nil? then temp = line.attributes['temp'] end
+
     end
 
     weather << :city << city << :region << region << :country << country << :chill << chill << :direction << direction << :speed << speed << :humidity << humidity << :visibility << visibility << :pressure << pressure << :rising << rising << :code << code << :text << text << :temp << temp

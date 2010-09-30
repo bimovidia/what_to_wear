@@ -7,7 +7,7 @@ class GetWeather
   end
 
   def getWeather(woeid)
-    city = region = country = chill = direction = speed = humidity = visibility = pressure = rising = code = temp = Array.new
+    city = region = country = chill = direction = speed = humidity = visibility = pressure = rising = code = text = temp = Array.new
     weather = location = wind = atmosphere = condition = Array.new
     url = URI.parse('http://weather.yahooapis.com/forecastrss?w='+woeid)
 
@@ -43,12 +43,12 @@ class GetWeather
     condition = REXML::XPath.match(data,'//yweather:condition')
     condition.each do |line|
       code = line.attributes['code']
+      text = line.attributes['text']
       temp = line.attributes['temp']
     end
 
-    weather << 'city' << city << 'region' << region << 'country' << country << 'chill' << chill << 'direction' << direction << 'speed' << speed << 'humidity' << humidity << 'visibility' << visibility << 'pressure' << pressure << 'rising' << rising << 'code' << code << 'temp' << temp
+    weather << :city << city << :region << region << :country << country << :chill << chill << :direction << direction << :speed << speed << :humidity << humidity << :visibility << visibility << :pressure << pressure << :rising << rising << :code << code << :text << text << :temp << temp
     weather = Hash[*weather.flatten]
-
 
     return weather
 

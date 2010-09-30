@@ -1,5 +1,5 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+# This Class gets the weather data
+# from Yahoo! Weather web service
 
 class GetWeather
   def initialize

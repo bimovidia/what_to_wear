@@ -21,6 +21,9 @@ class HomeController < ApplicationController
       
       if !@woeid.empty?
         @weather = @getWeather.getWeather(@woeid)
+
+        if @weather.empty? then @errText = "Please be more specific!" end
+        
       else
         @errText = "Place cannot be found. Please try again!"
       end

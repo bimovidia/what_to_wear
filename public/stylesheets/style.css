@@ -65,3 +65,34 @@ form input[type='submit']:active {
     position: relative;
     top: 1px;
 }
+
+#weatherInfo{
+    display:block;
+    position:relative;
+    background:#f4f4f4;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    color:#242424;
+    padding:20px;
+    width:300px;
+    margin:40px 0;
+}
+
+#weatherInfo img{
+    display:block;
+    padding:15px;
+    background:#fff;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    position:absolute;
+    left:290px;
+    top:-20px;
+    box-shadow: #242424 0 0 10px;
+    -webkit-box-shadow: #242424 0 0 10px;
+    -moz-box-shadow: #242424 0 0 10px;
+}
+#weatherInfo a{
+    color:#666;
+}

@@ -8,24 +8,25 @@ class HomeController < ApplicationController
     @title = "Home"
 
     #Instantiate variables
-    @search = GetWoeid.new
-    @getWeather = GetWeather.new
-
-    @weather = Array.new
-    @errText = String.new
+    @weather = Weather.new
 
     if !params[:search].nil?
       search = params[:search]
 
-      @woeid = @search.getWOEID(search)
+      @woeid = GetWoeid.getWOEID(search)
       
       if !@woeid.empty?
-        @weather = @getWeather.getWeather(@woeid)
+        @weather = GetWeather.getWeather(@woeid)
 
-        if @weather.empty? then @errText = "Please be more specific!" end
+        if @weather.temp.blank?
+          @infoText = "Please be more specific!"
+        else
+          @menWear = GetClothing.menWear(@weather)
+          @womenWear = GetClothing.womenWear(@weather)
+        end
         
       else
-        @errText = "Place cannot be found. Please try again!"
+        @infoText = "Place cannot be found. Please try again!"
       end
       
     end

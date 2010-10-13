@@ -6,7 +6,7 @@ class GetWoeid
     
   end
 
-  def getWOEID(txt)
+  def self.getWOEID(txt)
    catchErr = 0
 
     #Declare Unique Application ID
